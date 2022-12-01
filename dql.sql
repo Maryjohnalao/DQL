@@ -8,4 +8,4 @@ SELECT customer_id FROM orders WHERE quantity > 2;
 SELECT EXTRACT(MONTH FROM order_date) AS month, extract(year FROM order_date) AS year, COUNT(order_id) fROM orders ORDER BY month WHERE year = '2020'; 
 SELECT product_name, customer_name, order_date FROM orders inner JOIN product ON orders.product_id = product.product_id JOIN customer ON orders.customer_id = customer.customer_id
 SELECT * FROM orders WHERE order_date > current_date - interval '3 months';
-SELECT customer_id FROM orders NOT IN (select cust_id from customer)
+SELECT customer_name FROM customers where customer_id NOT IN (select cust_id from orders);
